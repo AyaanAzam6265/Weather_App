@@ -83,8 +83,12 @@ async function fetchWeather(city) {
 		document.querySelector(".weather").style.display = "none";
 	}
 }
-searchBtn.addEventListener("click", ()=>{
+searchBtn.addEventListener("click", function(){
     fetchWeather(searchBox.value);
 })
-// Example usage: Fetch weather data for a specific city (e.g., 'Fergana')
+searchBox.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        fetchWeather(searchBox.value);
+    }
+});
 
